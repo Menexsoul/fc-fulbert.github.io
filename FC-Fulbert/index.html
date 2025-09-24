@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FC-Fulbert - Club de football officiel. Découvrez l'équipe FC-Fulbert, nos matchs, actualités, joueurs et histoire du club. Rejoignez la communauté FC-Fulbert !">
+    <meta name="keywords" content="FC-Fulbert, football, club, équipe, matchs, joueurs, sport, championnat, FC Fulbert">
+    <meta name="author" content="FC-Fulbert">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph pour les réseaux sociaux -->
+    <meta property="og:title" content="FC-Fulbert - Club de Football Officiel">
+    <meta property="og:description" content="Site officiel du FC-Fulbert. Suivez notre équipe, nos matchs et toute l'actualité du club FC-Fulbert.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fc-fulbert.fr">
+    
+    <!-- Balises Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FC-Fulbert - Club de Football">
+    <meta name="twitter:description" content="Site officiel du FC-Fulbert. Toute l'actualité du club de football FC-Fulbert.">
+    
+    <title>FC-Fulbert - Club de Football Officiel | Site Officiel FC Fulbert</title>
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsTeam",
+        "name": "FC-Fulbert",
+        "alternateName": "FC Fulbert",
+        "sport": "Football",
+        "description": "Club de football FC-Fulbert - Équipe professionnelle de football",
+        "url": "https://fc-fulbert.fr",
+        "foundingDate": "1985",
+        "location": {
+            "@type": "Place",
+            "name": "Stade Municipal FC-Fulbert",
+            "address": "France"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23228B22" width="1200" height="600"/><circle fill="%23fff" cx="600" cy="300" r="50" opacity="0.1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3c72;
+        }
+        
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stat h4 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .player-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .player-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .player-image {
+            height: 300px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .player-info {
+            padding: 1.5rem;
+        }
+        
+        .player-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+        
+        .player-position {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        /* News Section */
+        .news {
+            background: #f8f9fa;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-image {
+            height: 200px;
+            background: linear-gradient(45deg, #228B22, #32CD32);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .news-content {
+            padding: 1.5rem;
+        }
+        
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+        
+        .news-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+        
+        .contact-info {
+            background: #1e3c72;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item h4 {
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ffd700;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* SEO Keywords Integration */
+        .seo-keywords {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- SEO Hidden Keywords -->
+    <div class="seo-keywords">
+        FC-Fulbert club de football équipe FC Fulbert football FC-Fulbert matchs joueurs championnat sport
+    </div>
+
+    <header>
+        <nav class="container">
+            <a href="#accueil" class="logo">FC-Fulbert</a>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#equipe">Équipe</a></li>
+                <li><a href="#actualites">Actualités</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="accueil" class="hero">
+            <div class="container">
+                <h1>FC-Fulbert</h1>
+                <p>Le club de football FC-Fulbert vous accueille ! Découvrez notre équipe passionnée et notre histoire riche en émotions sportives.</p>
+                <a href="#equipe" class="cta-button">Découvrir l'équipe FC-Fulbert</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">À Propos du FC-Fulbert</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>L'Histoire du FC-Fulbert</h3>
+                        <p>Fondé en 1985, le <strong>FC-Fulbert</strong> est un club de football qui incarne la passion et l'excellence sportive. Notre équipe <strong>FC-Fulbert</strong> a su se forger une réputation solide au fil des années grâce à son engagement sur le terrain et sa proximité avec ses supporters.</p>
+                        <p>Le <strong>FC Fulbert</strong> évolue dans le championnat régional et ambitionne de gravir les échelons pour atteindre les plus hautes divisions. Chaque match du <strong>FC-Fulbert</strong> est une nouvelle opportunité de démontrer notre détermination et notre esprit d'équipe.</p>
+                        <p>Rejoignez la grande famille du <strong>FC-Fulbert</strong> et vivez avec nous les moments d'émotion intense que seul le football peut offrir !</p>
+                    </div>
+                    <div class="stats">
+                        <div class="stat">
+                            <h4>1985</h4>
+                            <p>Année de création du FC-Fulbert</p>
+                        </div>
+                        <div class="stat">
+                            <h4>150+</h4>
+                            <p>Matchs joués par le FC-Fulbert</p>
+                        </div>
+                        <div class="stat">
+                            <h4>25</h4>
+                            <p>Joueurs dans l'équipe FC-Fulbert</p>
+                        </div>
+                        <div class="stat">
+                            <h4>500+</h4>
+                            <p>Supporters fidèles du FC-Fulbert</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipe" class="team">
+            <div class="container">
+                <h2 class="section-title">L'Équipe FC-Fulbert</h2>
+                <p style="text-align: center; margin-bottom: 3rem; font-size: 1.2rem;">Découvrez les joueurs talentueux qui composent l'effectif du <strong>FC-Fulbert</strong> cette saison.</p>
+                <div class="team-grid">
+                    <article class="player-card">
+                        <div class="player-image">⚽</div>
+                        <div class="player-info">
+                            <h3 class="player-name">Pierre Moreau</h3>
+                            <p class="player-position">Gardien - FC-Fulbert</p>
+                            <p>Gardien emblématique du FC-Fulbert depuis 5 ans, Pierre est un pilier de notre défense.</p>
+                        </div>
+                    </article>
+                    <article class="player-card">
+                        <div class="player-image">⚽</div>
+                        <div class="player-info">
+                            <h3 class="player-name">Antoine Dubois</h3>
+                            <p class="player-position">Défenseur - FC-Fulbert</p>
+                            <p>Défenseur central solide, Antoine apporte sa rigueur tactique au FC-Fulbert.</p>
+                        </div>
+                    </article>
+                    <article class="player-card">
+                        <div class="player-image">⚽</div>
+                        <div class="player-info">
+                            <h3 class="player-name">Lucas Martin</h3>
+                            <p class="player-position">Milieu - FC-Fulbert</p>
+                            <p>Créateur de jeu du FC-Fulbert, Lucas orchestre le milieu de terrain avec brio.</p>
+                        </div>
+                    </article>
+                    <article class="player-card">
+                        <div class="player-image">⚽</div>
+                        <div class="player-info">
+                            <h3 class="player-name">Julien Bernard</h3>
+                            <p class="player-position">Attaquant - FC-Fulbert</p>
+                            <p>Buteur prolifique du FC-Fulbert, Julien fait trembler les filets adverses.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="actualites" class="news">
+            <div class="container">
+                <h2 class="section-title">Actualités du FC-Fulbert</h2>
+                <p style="text-align: center; margin-bottom: 3rem; font-size: 1.2rem;">Suivez toute l'actualité et les dernières nouvelles du <strong>FC-Fulbert</strong>.</p>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-image">📰</div>
+                        <div class="news-content">
+                            <h3 class="news-title">Victoire éclatante du FC-Fulbert</h3>
+                            <p class="news-date">15 septembre 2025</p>
+                            <p>Le FC-Fulbert a remporté son dernier match sur le score de 3-1. Une performance remarquable de l'équipe FC-Fulbert qui consolide sa position au classement.</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-image">📰</div>
+                        <div class="news-content">
+                            <h3 class="news-title">Nouveau recrutement au FC-Fulbert</h3>
+                            <p class="news-date">10 septembre 2025</p>
+                            <p>Le FC-Fulbert accueille un nouveau talent dans ses rangs. Ce renfort viendra enrichir l'effectif déjà compétitif du FC Fulbert.</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-image">📰</div>
+                        <div class="news-content">
+                            <h3 class="news-title">Tournoi de formation FC-Fulbert</h3>
+                            <p class="news-date">5 septembre 2025</p>
+                            <p>Le FC-Fulbert organise un tournoi de formation pour les jeunes talents. Une initiative qui s'inscrit dans la politique de développement du FC-Fulbert.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contactez le FC-Fulbert</h2>
+                <p style="text-align: center; margin-bottom: 3rem; font-size: 1.2rem;">Vous souhaitez rejoindre le <strong>FC-Fulbert</strong> ou obtenir plus d'informations ? Contactez-nous !</p>
+                <div class="contact-content">
+                    <div class="contact-form">
+                        <h3>Envoyez-nous un message</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input type="text" id="nom" name="nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sujet">Sujet</label>
+                                <input type="text" id="sujet" name="sujet" placeholder="FC-Fulbert - Votre demande" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Votre message concernant le FC-Fulbert..." required></textarea>
+                            </div>
+                            <button type="submit" class="cta-button">Envoyer à FC-Fulbert</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Informations FC-Fulbert</h3>
+                        <div class="contact-item">
+                            <h4>Adresse du FC-Fulbert</h4>
+                            <p>Stade Municipal FC-Fulbert<br>
+                            Avenue du Sport<br>
+                            28100 Dreux, France</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Téléphone FC-Fulbert</h4>
+                            <p>+33 1 23 45 67 89</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Email FC-Fulbert</h4>
+                            <p>contact@fc-fulbert.fr</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Horaires d'entrainement</h4>
+                            <p>Mardi et Jeudi: 18h-20h<br>
+                            Samedi: 14h-16h</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>FC-Fulbert</h4>
+                    <p>Club de football passionné depuis 1985. Le FC-Fulbert, c'est une équipe unie et des valeurs fortes qui nous portent vers l'excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil FC-Fulbert</a></li>
+                        <li><a href="#equipe">Équipe FC-Fulbert</a></li>
+                        <li><a href="#actualites">Actualités FC-Fulbert</a></li>
+                        <li><a href="#contact">Contact FC-Fulbert</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens utiles</h4>
+                    <ul>
+                        <li><a href="#">Calendrier FC-Fulbert</a></li>
+                        <li><a href="#">Résultats FC-Fulbert</a></li>
+                        <li><a href="#">Classement</a></li>
+                        <li><a href="#">Billetterie FC-Fulbert</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez FC-Fulbert</h4>
+                    <ul>
+                        <li><a href="#">Facebook FC-Fulbert</a></li>
+                        <li><a href="#">Twitter FC-Fulbert</a></li>
+                        <li><a href="#">Instagram FC-Fulbert</a></li>
+                        <li><a href="#">YouTube FC-Fulbert</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr style="border: none; height: 1px; background: rgba(255,255,255,0.2); margin: 2rem 0;">
+            <p>&copy; 2025 FC-Fulbert - Club de Football. Tous droits réservés. Site officiel du FC-Fulbert.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+
+        // Observer les éléments à animer
+        document.querySelectorAll('.player-card, .news-card, .stat').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Gestion du formulaire de contact
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! L\'équipe du FC-Fulbert vous recontactera bientôt.');
+        });
+    </script>
+</body>
+</html>
