@@ -103,8 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== ANIMATION AU SCROLL (INTERSECTION OBSERVER) =====
     function initScrollAnimations() {
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Animation spéciale pour les compteurs
                     if (entry.target.classList.contains('stat-card')) {
-                        animateCounter(entry.target);
+                        setTimeout(() => animateCounter(entry.target), 300);
                     }
                 }
             });
@@ -128,6 +128,27 @@ document.addEventListener('DOMContentLoaded', function() {
         elementsToAnimate.forEach(el => {
             observer.observe(el);
         });
+
+        // Observer spécialement la section des jeunes
+        const youthSection = document.getElementById('youth-categories');
+        if (youthSection) {
+            const youthObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const youthCards = entry.target.querySelectorAll('.youth-card');
+                        youthCards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                                card.classList.add('animate-on-scroll');
+                            }, index * 200);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            youthObserver.observe(youthSection);
+        }
     }
 
     // ===== ANIMATION DES COMPTEURS =====
