@@ -457,8 +457,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== DÉMARRAGE SIMPLE =====
     init();
 
-// ===== SUPPRESSION DES FONCTIONS PROBLÉMATIQUES =====
-// Section chiffres maintenant en CSS pur
+// ===== NETTOYAGE COMPLET - SUPPRESSION DE TOUTE MANIPULATION DES STATS =====
+// Plus aucun code ne touche aux éléments .stat-card, .stats, #chiffres
 
 // ===== CORRECTION FINALE SIMPLE =====
 window.addEventListener('load', function() {
