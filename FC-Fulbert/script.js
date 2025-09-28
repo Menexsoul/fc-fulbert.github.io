@@ -103,93 +103,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== ANIMATION AU SCROLL (INTERSECTION OBSERVER) =====
     function initScrollAnimations() {
         const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-on-scroll');
-                    
-                    // Animation spéciale pour les compteurs
-                    if (entry.target.classList.contains('stat-card')) {
-                        setTimeout(() => animateCounter(entry.target), 300);
-                    }
                 }
             });
         }, observerOptions);
 
         // Observer les éléments à animer
         const elementsToAnimate = document.querySelectorAll(
-            '.team-card, .news-card, .stat-card, .youth-card, .hero-content'
+            '.team-card, .news-card, .youth-card, .hero-content'
         );
         
         elementsToAnimate.forEach(el => {
             observer.observe(el);
         });
+    }
 
-        // Observer spécialement la section des jeunes
-        const youthSection = document.getElementById('youth-categories');
-        if (youthSection) {
-            const youthObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const youthCards = entry.target.querySelectorAll('.youth-card');
-                        youthCards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                                card.classList.add('animate-on-scroll');
-                            }, index * 200);
-                        });
-                    }
-                });
-            }, { threshold: 0.3 });
-            
-            youthObserver.observe(youthSection);
+    // ===== CORRECTION SIMPLIFIÉE POUR LES SOUS-CATÉGORIES JEUNES =====
+    function fixYouthCategoriesDisplay() {
+        const youthSection = document.querySelector('.youth-section');
+        if (youthSection && youthSection.style.display === 'none') {
+            youthSection.style.display = 'block';
         }
-    }
-
-    // ===== ANIMATION DES COMPTEURS =====
-    function animateCounter(statCard) {
-        const counter = statCard.querySelector('.stat-number');
-        if (!counter || counter.classList.contains('animated')) return;
         
-        const target = parseInt(counter.getAttribute('data-target')) || parseInt(counter.textContent.replace(/\D/g, ''));
-        if (isNaN(target) || target === 0) return;
+        const youthCategories = document.querySelector('.youth-categories');
+        if (youthCategories && youthCategories.style.display === 'none') {
+            youthCategories.style.display = 'grid';
+        }
         
-        const duration = 2000; // 2 secondes
-        const steps = 60;
-        const increment = target / steps;
-        const stepDuration = duration / steps;
-        
-        let current = 0;
-        counter.classList.add('animated');
-        
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                // Formater la valeur finale correctement
-                if (target === 1985) {
-                    counter.textContent = '1985';
-                } else {
-                    counter.textContent = Math.round(target);
-                }
-                clearInterval(timer);
-            } else {
-                counter.textContent = Math.floor(current);
-            }
-        }, stepDuration);
-    }
-
-    // ===== ANIMATION DES COMPTEURS POUR TOUS =====
-    function animateAllCounters() {
-        const counters = document.querySelectorAll('.stat-number[data-target]');
-        counters.forEach(counter => {
-            const statCard = counter.closest('.stat-card');
-            if (statCard) {
-                animateCounter(statCard);
+        const youthCards = document.querySelectorAll('.youth-card');
+        youthCards.forEach(card => {
+            if (card && card.style.display === 'none') {
+                card.style.display = 'block';
             }
         });
     }
@@ -209,11 +160,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 requiredFields.forEach(field => {
                     if (!field.value.trim()) {
                         isValid = false;
-                        field.style.borderColor = '#e74c3c';
-                        field.style.boxShadow = '0 0 5px rgba(231, 76, 60, 0.5)';
+                        field.classList.add('error');
                     } else {
-                        field.style.borderColor = '';
-                        field.style.boxShadow = '';
+                        field.classList.remove('error');
                     }
                 });
                 
@@ -240,40 +189,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <button class="notification-close">&times;</button>
         `;
         
-        // Styles CSS inline pour la notification
-        Object.assign(notification.style, {
-            position: 'fixed',
-            top: '100px',
-            right: '20px',
-            background: type === 'success' ? '#4caf50' : type === 'error' ? '#e74c3c' : '#2196f3',
-            color: 'white',
-            padding: '15px 20px',
-            borderRadius: '10px',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-            zIndex: '10000',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '15px',
-            maxWidth: '350px',
-            animation: 'slideInRight 0.5s ease-out',
-            fontSize: '14px',
-            fontWeight: 'bold'
-        });
-        
-        const closeBtn = notification.querySelector('.notification-close');
-        Object.assign(closeBtn.style, {
-            background: 'none',
-            border: 'none',
-            color: 'white',
-            fontSize: '20px',
-            cursor: 'pointer',
-            padding: '0',
-            marginLeft: 'auto'
-        });
-        
         document.body.appendChild(notification);
         
         // Fermer la notification
+        const closeBtn = notification.querySelector('.notification-close');
         closeBtn.addEventListener('click', () => {
             notification.style.animation = 'slideOutRight 0.5s ease-out';
             setTimeout(() => notification.remove(), 500);
@@ -330,24 +249,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
         socialButtons.forEach(button => {
             button.addEventListener('click', function(e) {
-                // Animation de clic
-                this.style.transform = 'scale(0.95)';
+                // Animation de clic simple
+                this.classList.add('clicked');
                 setTimeout(() => {
-                    this.style.transform = '';
+                    this.classList.remove('clicked');
                 }, 150);
                 
                 // Analytics (si nécessaire)
                 const platform = this.className.split(' ').find(cls => cls !== 'social-btn');
                 console.log(`Clic sur le bouton social: ${platform}`);
-            });
-            
-            // Animation au survol
-            button.addEventListener('mouseenter', function() {
-                this.style.animation = 'bounce 0.6s ease-in-out';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.animation = '';
             });
         });
     }
@@ -441,20 +351,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
         
-        // Styles CSS inline pour le banner
-        Object.assign(cookieBanner.style, {
-            position: 'fixed',
-            bottom: '0',
-            left: '0',
-            width: '100%',
-            background: 'rgba(30, 60, 114, 0.95)',
-            color: 'white',
-            padding: '20px',
-            zIndex: '10000',
-            backdropFilter: 'blur(10px)',
-            borderTop: '3px solid #ffd700'
-        });
-        
         document.body.appendChild(cookieBanner);
         
         // Gestion des boutons
@@ -486,23 +382,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 notifications.forEach(notif => notif.remove());
             }
         });
-        
-        // Focus visible pour les éléments interactifs
-        const focusableElements = document.querySelectorAll(
-            'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
-        );
-        
-        focusableElements.forEach(element => {
-            element.addEventListener('focus', function() {
-                this.style.outline = '2px solid #ffd700';
-                this.style.outlineOffset = '2px';
-            });
-            
-            element.addEventListener('blur', function() {
-                this.style.outline = '';
-                this.style.outlineOffset = '';
-            });
-        });
     }
 
     // ===== PERFORMANCE MONITORING =====
@@ -530,9 +409,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ===== INITIALISATION PRINCIPALE =====
+    // ===== INITIALISATION SIMPLIFIÉE =====
     function init() {
         console.log('🏆 FC-Fulbert Chartres - Initialisation du site web');
+        
+        // Correction simple au démarrage
+        setTimeout(() => {
+            fixYouthCategoriesDisplay();
+        }, 500);
         
         // Initialiser tous les modules
         initMobileMenu();
@@ -547,21 +431,22 @@ document.addEventListener('DOMContentLoaded', function() {
         initAccessibility();
         initPerformanceMonitoring();
         
-        // Événements de scroll
-        window.addEventListener('scroll', function() {
+        // Événements de scroll optimisés sans conflits
+        window.addEventListener('scroll', throttle(function() {
             handleHeaderScroll();
             updateActiveNavigation();
-        });
+        }, 16));
         
         // Gestion du redimensionnement
-        window.addEventListener('resize', function() {
-            // Fermer le menu mobile en cas de redimensionnement
+        window.addEventListener('resize', debounce(function() {
             if (window.innerWidth > 768) {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
-        });
+            // Correction légère au redimensionnement
+            fixYouthCategoriesDisplay();
+        }, 250));
         
         // Initialisation de la navigation active
         updateActiveNavigation();
@@ -569,92 +454,24 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('✅ FC-Fulbert Chartres - Site initialisé avec succès !');
     }
 
-    // ===== ANIMATIONS CSS SUPPLÉMENTAIRES =====
-    function addCustomStyles() {
-        const customStyles = `
-            <style>
-                @keyframes slideInRight {
-                    from {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                }
-                
-                @keyframes slideOutRight {
-                    from {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                    to {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                }
-                
-                .cookie-content {
-                    max-width: 1200px;
-                    margin: 0 auto;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    gap: 20px;
-                }
-                
-                .cookie-buttons {
-                    display: flex;
-                    gap: 15px;
-                    align-items: center;
-                }
-                
-                .cookie-buttons button {
-                    padding: 10px 20px;
-                    border: none;
-                    border-radius: 25px;
-                    cursor: pointer;
-                    font-weight: bold;
-                    transition: all 0.3s ease;
-                }
-                
-                .cookie-accept {
-                    background: #ffd700 !important;
-                    color: #1e3c72 !important;
-                }
-                
-                .cookie-decline {
-                    background: transparent !important;
-                    color: white !important;
-                    border: 1px solid white !important;
-                }
-                
-                .cookie-buttons a {
-                    color: #ffd700;
-                    text-decoration: underline;
-                }
-                
-                @media (max-width: 768px) {
-                    .cookie-content {
-                        flex-direction: column;
-                        text-align: center;
-                    }
-                    
-                    .cookie-buttons {
-                        flex-wrap: wrap;
-                        justify-content: center;
-                    }
-                }
-            </style>
-        `;
-        
-        document.head.insertAdjacentHTML('beforeend', customStyles);
-    }
-
-    // ===== DÉMARRAGE =====
-    addCustomStyles();
+    // ===== DÉMARRAGE SIMPLE =====
     init();
+
+// ===== SUPPRESSION DES FONCTIONS PROBLÉMATIQUES =====
+// Section chiffres maintenant en CSS pur
+
+// ===== CORRECTION FINALE SIMPLE =====
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        const youthSection = document.querySelector('.youth-section');
+        if (youthSection && youthSection.style.display === 'none') {
+            youthSection.style.display = 'block';
+        }
+        
+        console.log('🎯 Correction finale appliquée');
+    }, 1000);
+});
+
 });
 
 // ===== FONCTIONS UTILITAIRES GLOBALES =====
@@ -712,6 +529,6 @@ function validateEmail(email) {
 }
 
 // Console log stylé pour le développement
-console.log('%c🏆 FC-Fulbert Chartres', 'color: #1e3c72; font-size: 20px; font-weight: bold;');
-console.log('%c⚽ Club de football en Eure-et-Loir', 'color: #ffd700; font-size: 14px;');
+console.log('%c🏆 FC-Fulbert Chartres', 'color: #1a1a1a; font-size: 20px; font-weight: bold;');
+console.log('%c⚽ Club de football en Eure-et-Loir', 'color: #ff6b35; font-size: 14px;');
 console.log('%cSite web développé avec passion pour le FC-Fulbert ! 💙', 'color: #666; font-style: italic;');
