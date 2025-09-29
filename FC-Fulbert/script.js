@@ -226,8 +226,11 @@ document.addEventListener('DOMContentLoaded', function() {
         images.forEach(img => imageObserver.observe(img));
     }
 
-    // ===== PARALLAX EFFECT =====
+    // ===== PARALLAX EFFECT - DÉSACTIVÉ POUR ÉVITER LES CHEVAUCHEMENTS =====
     function initParallaxEffect() {
+        // DÉSACTIVÉ - causait des problèmes de positionnement
+        console.log('Parallax effect désactivé pour éviter les chevauchements');
+        /*
         const parallaxElements = document.querySelectorAll('.hero, .stats');
         
         window.addEventListener('scroll', () => {
@@ -241,6 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+        */
     }
 
     // ===== GESTION DES BOUTONS SOCIAUX =====
@@ -409,13 +413,55 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // ===== NETTOYAGE ANTI-DUPLICATION DES STATS =====
+    function cleanDuplicateStats() {
+        const statsGrid = document.querySelector('.stats-grid');
+        if (statsGrid) {
+            const statCards = Array.from(statsGrid.querySelectorAll('.stat-card'));
+            
+            // Ne garder que les 6 premières cards
+            statCards.forEach((card, index) => {
+                if (index >= 6) {
+                    card.remove(); // Supprime physiquement les doublons
+                }
+            });
+            
+            console.log(`✅ Stats nettoyées : ${statCards.length} cards trouvées, ${Math.max(0, statCards.length - 6)} supprimées`);
+        }
+    }
+
+    // ===== NETTOYAGE DES STYLES INLINE PROBLÉMATIQUES =====
+    function cleanInlineStyles() {
+        // Nettoyer tous les styles inline sur les sections
+        const sections = document.querySelectorAll('section, .stats, .news, #chiffres, #actualites');
+        sections.forEach(section => {
+            section.style.transform = '';
+            section.style.position = '';
+            section.style.zIndex = '';
+            section.style.top = '';
+            section.style.left = '';
+            section.style.right = '';
+            section.style.bottom = '';
+        });
+        
+        console.log('✅ Styles inline nettoyés sur les sections');
+    }
+
     // ===== INITIALISATION SIMPLIFIÉE =====
     function init() {
         console.log('🏆 FC-Fulbert Chartres - Initialisation du site web');
         
+        // Nettoyage immédiat des styles problématiques
+        cleanInlineStyles();
+        
+        // Nettoyage immédiat des doublons
+        cleanDuplicateStats();
+        
         // Correction simple au démarrage
         setTimeout(() => {
             fixYouthCategoriesDisplay();
+            cleanDuplicateStats(); // Double vérification
+            cleanInlineStyles(); // Re-nettoyage après chargement
         }, 500);
         
         // Initialiser tous les modules
@@ -435,6 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', throttle(function() {
             handleHeaderScroll();
             updateActiveNavigation();
+            // PAS de parallax pour éviter les chevauchements
         }, 16));
         
         // Gestion du redimensionnement

@@ -329,8 +329,11 @@ nav {
 /* ===== SECTIONS ===== */
 section {
     padding: 100px 0;
-    position: relative;
-    z-index: 1;
+    position: static;
+    display: block;
+    width: 100%;
+    float: none;
+    clear: both;
 }
 
 /* ===== TEAMS SECTION ===== */
@@ -543,17 +546,29 @@ section {
     padding: 0;
 }
 
-/* ===== STATS SECTION - SANS ANIMATIONS - ANTI-DUPLICATION ===== */
+/* ===== STATS SECTION - SANS CHEVAUCHEMENT ===== */
 .stats {
     background: linear-gradient(135deg, var(--black), var(--black-light));
     color: var(--text-white);
-    position: relative;
-    overflow: hidden;
-    z-index: 10;
-    padding: 100px 0;
+    position: static;
+    overflow: visible;
+    padding: 80px 0;
     margin: 0;
+    margin-bottom: 0;
     width: 100%;
+    height: auto;
     display: block;
+    float: none;
+    clear: both;
+}
+
+.stats .container {
+    position: static;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: auto;
+    float: none;
 }
 
 .stats-overlay {
@@ -562,56 +577,71 @@ section {
 
 .stats .section-title {
     color: var(--text-white);
-    position: relative;
-    z-index: 20;
+    position: static;
+    margin-bottom: 1rem;
 }
 
 .stats .section-subtitle {
     color: rgba(255,255,255,0.8);
-    position: relative;
-    z-index: 20;
+    position: static;
+    margin-bottom: 3rem;
 }
 
-/* CORRECTION ANTI-DUPLICATION */
+/* CORRECTION ANTI-DUPLICATION - SANS CHEVAUCHEMENT */
 .stats-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-    grid-template-rows: auto !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: auto auto !important;
     gap: 2rem !important;
-    position: relative;
-    z-index: 20;
+    position: static;
     width: 100% !important;
     max-width: 1200px !important;
     margin: 0 auto !important;
+    padding: 0 !important;
+    height: auto !important;
     align-items: start !important;
-    justify-items: center !important;
+    justify-items: stretch !important;
 }
 
-/* Force exactement 6 cards */
+/* Force exactement 6 cards - cache TOUS les doublons */
+.stats-grid > .stat-card:nth-child(1),
+.stats-grid > .stat-card:nth-child(2),
+.stats-grid > .stat-card:nth-child(3),
+.stats-grid > .stat-card:nth-child(4),
+.stats-grid > .stat-card:nth-child(5),
+.stats-grid > .stat-card:nth-child(6) {
+    display: block !important;
+}
+
 .stats-grid > .stat-card:nth-child(n+7) {
-    display: none !important; /* Cache les doublons éventuels */
+    display: none !important; /* Cache TOUT après la 6ème */
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
 }
 
 .stat-card {
     text-align: center;
     background: rgba(255,255,255,0.1);
-    padding: 2rem 1.5rem !important;
+    padding: 1.5rem !important;
     border-radius: var(--border-radius-large);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 107, 53, 0.2);
-    position: relative;
+    position: static;
     overflow: hidden;
     opacity: 1 !important;
     transform: none !important;
-    z-index: 25;
     width: 100% !important;
-    max-width: 300px !important; /* Limite la largeur */
-    height: auto !important;
+    max-width: 100% !important;
+    height: 260px !important;
     min-height: 260px !important;
-    max-height: 300px !important;
+    max-height: 260px !important;
     box-sizing: border-box !important;
     flex: none !important;
-    display: block !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
     visibility: visible !important;
 }
 
@@ -670,6 +700,7 @@ section {
     line-height: 1.4 !important;
     width: 100% !important;
 }
+
 .stats .section-title {
     color: var(--text-white);
 }
@@ -748,6 +779,7 @@ section {
     z-index: 2;
     margin-top: 0;
     padding: 100px 0;
+    clear: both;
 }
 
 .news-preview {
@@ -1431,45 +1463,51 @@ section {
     border: 0;
 }
 
-/* ===== ORDRE DES SECTIONS ET CORRECTION DU BUG D'AFFICHAGE ===== */
+/* ===== SECTIONS SANS CHEVAUCHEMENT ===== */
 #chiffres {
-    position: relative;
-    z-index: 10;
+    position: static;
     display: block;
     width: 100%;
+    height: auto;
     margin: 0;
-    padding: 100px 0;
+    margin-bottom: 0;
+    padding: 0;
+    float: none;
+    clear: both;
 }
 
 #actualites {
-    position: relative;
-    z-index: 2;
+    position: static;
     display: block;
     width: 100%;
+    height: auto;
     margin: 0;
-    padding: 100px 0;
+    margin-top: 0;
+    padding: 0;
+    background: var(--bg-light);
+    float: none;
+    clear: both;
 }
 
-/* Correction spécifique pour les stats cards */
+/* Suppression des z-index sur les containers */
 .stats .container {
-    position: relative;
-    z-index: 15;
+    position: static;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    height: auto;
 }
 
 .stats .stats-grid {
-    position: relative;
-    z-index: 20;
+    position: static;
     display: grid;
     visibility: visible;
     opacity: 1;
+    height: auto;
 }
 
 .stats .stat-card {
-    position: relative;
-    z-index: 25;
+    position: static;
     display: block;
     visibility: visible;
     opacity: 1;
