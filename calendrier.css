@@ -1,0 +1,232 @@
+/* ===== CALENDRIER - CSS SPÉCIFIQUE ===== */
+
+/* Filtres */
+.calendar-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    padding: 12px 30px;
+    background: white;
+    color: var(--black);
+    border: 2px solid var(--orange);
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.filter-btn.active {
+    background: linear-gradient(45deg, var(--orange), var(--pink));
+    color: white;
+    border: none;
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* Cartes de matchs */
+.match-card-calendar {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    display: block;
+    opacity: 1;
+}
+
+.match-card-calendar.hidden {
+    display: none;
+}
+
+.match-card-calendar:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Section abonnements - Espacement corrigé */
+.abonnements-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    color: white;
+    margin-bottom: 0 !important;
+}
+
+.abonnements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.abonnement-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: var(--transition);
+}
+
+.abonnement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.abonnement-card.featured {
+    background: rgba(255, 255, 255, 0.2);
+    border: 3px solid white;
+    transform: scale(1.05);
+}
+
+.abonnement-card.featured:hover {
+    transform: scale(1.08) translateY(-5px);
+}
+
+.abonnement-badge {
+    background: white;
+    color: var(--orange);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.abonnement-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.abonnement-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.abonnement-price {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+}
+
+.abonnement-description {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.abonnement-features {
+    text-align: left;
+    line-height: 2;
+    opacity: 0.9;
+    list-style: none;
+    padding: 0;
+}
+
+.abonnement-features li {
+    padding: 0.3rem 0;
+}
+
+.abonnement-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+/* Match card grid responsive */
+@media (max-width: 1024px) {
+    .match-card-calendar > div {
+        grid-template-columns: 100px 1fr auto;
+        gap: 1.5rem;
+    }
+    
+    .match-date-calendar {
+        padding: 1rem !important;
+    }
+    
+    .match-date-calendar div:nth-child(2) {
+        font-size: 2.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .match-card-calendar {
+        padding: 1.5rem;
+    }
+    
+    .match-card-calendar > div {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .match-details-calendar > div:first-child {
+        justify-content: center;
+    }
+    
+    .match-details-calendar > div:nth-child(2) {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .abonnements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .abonnement-card.featured {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .match-card-calendar {
+        padding: 1rem;
+        border-left-width: 3px;
+    }
+    
+    .match-date-calendar {
+        padding: 0.8rem !important;
+    }
+    
+    .match-date-calendar div:first-child,
+    .match-date-calendar div:last-child {
+        font-size: 0.8rem !important;
+    }
+    
+    .match-date-calendar div:nth-child(2) {
+        font-size: 2rem !important;
+    }
+    
+    .match-details-calendar span {
+        font-size: 0.8rem !important;
+    }
+    
+    .match-details-calendar > div:nth-child(2) span {
+        font-size: 1.2rem !important;
+    }
+    
+    .abonnement-price {
+        font-size: 2.5rem;
+    }
+    
+    .abonnement-title {
+        font-size: 1.5rem;
+    }
+}
