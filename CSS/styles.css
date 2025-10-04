@@ -113,24 +113,36 @@ nav {
 }
 
 .logo {
-    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: var(--text-white);
     text-decoration: none;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     transition: var(--transition);
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    transition: var(--transition);
+}
+
+#header.scrolled .logo-image {
+    height: 40px;
+}
+
+.logo-text {
     background: linear-gradient(45deg, var(--orange), var(--pink));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    white-space: nowrap;
 }
 
-#header.scrolled .logo {
-    font-size: 1.8rem;
-}
-
-.logo:hover {
-    filter: brightness(1.2);
+.logo:hover .logo-image {
+    transform: scale(1.05);
 }
 
 .nav-links {
