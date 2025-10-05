@@ -112,37 +112,142 @@ nav {
     position: relative;
 }
 
+/* ===== LOGO HEADER - OPTIMISÉ ===== */
+
+/* Navigation avec logo */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: 2rem;
+}
+
+/* Container du logo */
 .logo {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--text-white);
     text-decoration: none;
     transition: var(--transition);
+    flex-shrink: 0; /* Empêche le logo de se rétrécir */
+    padding: 0.3rem;
 }
 
+/* Image du logo */
 .logo-image {
-    height: 50px;
+    height: 55px;
     width: auto;
     transition: var(--transition);
+    border-radius: 8px;
+    background: white;
+    padding: 0.3rem;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
 }
 
 #header.scrolled .logo-image {
-    height: 40px;
+    height: 45px;
 }
 
+.logo:hover .logo-image {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.5);
+}
+
+/* Texte du logo */
 .logo-text {
     background: linear-gradient(45deg, var(--orange), var(--pink));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-size: 1.5rem;
+    font-weight: bold;
     white-space: nowrap;
+    letter-spacing: 0.5px;
 }
 
-.logo:hover .logo-image {
-    transform: scale(1.05);
+#header.scrolled .logo-text {
+    font-size: 1.3rem;
+}
+
+/* Navigation links - alignement à droite */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    align-items: center;
+    margin-left: auto; /* Pousse les liens à droite */
+}
+
+/* Responsive Mobile */
+@media (max-width: 1200px) {
+    .logo-text {
+        font-size: 1.3rem;
+    }
+    
+    .logo-image {
+        height: 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .logo-image {
+        height: 45px;
+    }
+    
+    .nav-links {
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Sur mobile, cacher le texte et garder seulement le logo */
+    .logo-text {
+        display: none;
+    }
+    
+    .logo-image {
+        height: 45px;
+    }
+    
+    #header.scrolled .logo-image {
+        height: 40px;
+    }
+    
+    /* Menu mobile reste à droite */
+    .nav-toggle {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        height: 40px;
+    }
+    
+    #header.scrolled .logo-image {
+        height: 35px;
+    }
+}
+
+/* Alternative : Si vous préférez un logo circulaire */
+.logo-image.circle {
+    border-radius: 50%;
+}
+
+/* Alternative : Logo sans fond blanc apparent */
+.logo-image.no-bg {
+    background: transparent;
+    box-shadow: none;
+    filter: drop-shadow(0 2px 4px rgba(255, 107, 53, 0.3));
+}
+
+.logo-image.no-bg:hover {
+    filter: drop-shadow(0 4px 8px rgba(255, 107, 53, 0.5));
 }
 
 .nav-links {
