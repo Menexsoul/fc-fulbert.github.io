@@ -1,4 +1,4 @@
-// ===== JOUEURS FC-FULBERT - JAVASCRIPT =====
+// ===== JOUEURS FC-FULBERT - JAVASCRIPT CORRIGÉ =====
 
 document.addEventListener('DOMContentLoaded', function() {
     const playersContainer = document.getElementById('playersContainer');
@@ -14,14 +14,23 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentFilter = 'all';
     let searchTerm = '';
     
+    // Vérifier que les données existent
+    if (typeof playersData === 'undefined') {
+        console.error('❌ playersData non trouvé ! Vérifiez que joueurs.js est chargé avant joueur-data.js');
+        playersContainer.innerHTML = '<p style="color: red; text-align: center; padding: 2rem;">Erreur : Les données des joueurs ne sont pas chargées.</p>';
+        return;
+    }
+    
     // Initialisation
     renderPlayers();
     
     // Recherche
-    searchInput.addEventListener('input', function(e) {
-        searchTerm = e.target.value.toLowerCase();
-        renderPlayers();
-    });
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            searchTerm = e.target.value.toLowerCase();
+            renderPlayers();
+        });
+    }
     
     // Filtres par poste
     filterButtons.forEach(button => {
@@ -45,9 +54,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Fermer le modal
-    closeModal.addEventListener('click', () => modal.style.display = 'none');
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            window.location.hash = '';
+        });
+    }
+    
     window.addEventListener('click', (e) => {
-        if (e.target === modal) modal.style.display = 'none';
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            window.location.hash = '';
+        }
     });
     
     // Fonction de filtrage
@@ -68,11 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (filteredPlayers.length === 0) {
             playersContainer.innerHTML = '';
-            noResults.style.display = 'block';
+            if (noResults) noResults.style.display = 'block';
             return;
         }
         
-        noResults.style.display = 'none';
+        if (noResults) noResults.style.display = 'none';
         playersContainer.innerHTML = '';
         
         filteredPlayers.forEach(player => {
@@ -85,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function createPlayerCardGrid(player) {
         const card = document.createElement('div');
         card.className = 'player-card';
+        
         card.innerHTML = `
             <div class="player-card-header">
                 <div class="player-avatar">${player.avatar}</div>
@@ -127,7 +146,12 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
         
-        card.addEventListener('click', () => openPlayerModal(player));
+        card.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('player-view-profile')) {
+                openPlayerModal(player);
+            }
+        });
+        
         return card;
     }
     
@@ -135,6 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function createPlayerCardList(player) {
         const card = document.createElement('div');
         card.className = 'player-card-list';
+        
         card.innerHTML = `
             <div class="player-list-number">${player.numero}</div>
             <div class="player-list-avatar">${player.avatar}</div>
@@ -208,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 
                 <div class="player-modal-stats-section">
-                    <h3 class="player-modal-stats-title">Statistiques 2024/2025</h3>
+                    <h3 class="player-modal-stats-title">📊 Statistiques 2024/2025</h3>
                     <div class="player-modal-stats-grid">
                         <div class="player-modal-stat-card">
                             <div class="player-modal-stat-value">${player.matchs}</div>
@@ -240,10 +265,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 
                 <div class="player-bio">
-                    <h4 style="color: var(--orange); font-size: 1.2rem; margin-bottom: 1rem;">📖 Biographie</h4>
-                    <p style="line-height: 1.8; margin-bottom: 1rem;">${player.bio}</p>
-                    <h5 style="color: var(--black); font-weight: 600; margin-bottom: 0.5rem;">Parcours :</h5>
-                    <ul style="padding-left: 1.5rem; line-height: 1.8;">
+                    <h4>📖 Biographie</h4>
+                    <p>${player.bio}</p>
+                    <h5>🏆 Parcours :</h5>
+                    <ul>
                         ${player.parcours.map(club => `<li>${club}</li>`).join('')}
                     </ul>
                 </div>
@@ -251,6 +276,14 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Fermer le modal
+    function closePlayerModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        window.location.hash = '';
     }
     
     // Ouvrir modal depuis URL hash
@@ -265,13 +298,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navigation via hash
     window.addEventListener('hashchange', function() {
         if (!window.location.hash) {
-            modal.style.display = 'none';
+            closePlayerModal();
         } else {
             const playerId = window.location.hash.substring(1);
             const player = playersData.find(p => p.id === playerId);
             if (player) {
                 openPlayerModal(player);
             }
+        }
+    });
+    
+    // Fermeture avec touche Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closePlayerModal();
         }
     });
     

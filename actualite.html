@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Actualités du FC-Fulbert Chartres : dernières news, communiqués, événements, transferts et infos du club de football en Eure-et-Loir. Restez informé de toute l'actualité sportive.">
+    <meta name="keywords" content="actualités FC-Fulbert, news FC-Fulbert Chartres, infos club football Chartres, dernières nouvelles FC-Fulbert, communiqués club, événements football Chartres, transferts FC-Fulbert, actu sport Eure-et-Loir">
+    <meta name="author" content="FC-Fulbert Chartres">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Actualités FC-Fulbert Chartres - News et Infos du Club">
+    <meta property="og:description" content="Toutes les actualités du FC-Fulbert Chartres : résultats, transferts, événements et communiqués officiels du club de football.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://menexsoul.github.io/fc-fulbert.github.io/actualite.html">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ7N99VSK0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WJ7N99VSK0');
+    </script>
+
+    <title>Actualités FC-Fulbert Chartres | News, Infos et Communiqués du Club</title>
+    
+    <link rel="icon" type="image/png" href="img/iconFC.ico">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/actualite.css">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsTeam",
+        "name": "FC-Fulbert Chartres",
+        "sport": "Football",
+        "url": "https://menexsoul.github.io/fc-fulbert.github.io/"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-fcfulbert.png" alt="Logo FC-Fulbert Chartres" class="logo-image">
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="joueurs-fc-fulbert.html" class="nav-link">Joueurs</a></li>
+                <li><a href="equipe-feminine.html" class="nav-link">Équipe Féminine</a></li>
+                <li><a href="equipe-jeune.html" class="nav-link">Équipe Jeune</a></li>
+                <li><a href="calendrier.html" class="nav-link">Calendrier</a></li>
+                <li><a href="boutique.html" class="nav-link">Boutique</a></li>
+                <li><a href="resultats.html" class="nav-link">Résultats</a></li>
+                <li><a href="histoire.html" class="nav-link">Histoire</a></li>
+                <li><a href="actualite.html" class="nav-link active">Actualité</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Filtres Actualités -->
+        <section class="news-filters-section">
+            <div class="container">
+                <div class="filters-header">
+                    <h2>Filtrer les actualités</h2>
+                    <div class="search-box">
+                        <input type="text" id="searchNews" placeholder="🔍 Rechercher une actualité...">
+                    </div>
+                </div>
+                
+                <div class="news-filters">
+                    <button class="filter-btn active" data-category="all">Toutes</button>
+                    <button class="filter-btn" data-category="match">⚽ Matchs</button>
+                    <button class="filter-btn" data-category="transfert">📝 Transferts</button>
+                    <button class="filter-btn" data-category="evenement">🎉 Événements</button>
+                    <button class="filter-btn" data-category="communique">📢 Communiqués</button>
+                    <button class="filter-btn" data-category="jeunes">👶 Jeunes</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article à la Une -->
+        <section class="featured-article-section">
+            <div class="container">
+                <div class="featured-label">⭐ À LA UNE</div>
+                <article class="featured-article" data-category="match">
+                    <div class="featured-image">
+                        <img src="img/match-victoire.png" alt="Grande victoire du FC-Fulbert">
+                        <div class="featured-category">Match</div>
+                    </div>
+                    <div class="featured-content">
+                        <div class="featured-meta">
+                            <span class="featured-date">📅 05 Octobre 2025</span>
+                            <span class="featured-author">👤 Par la Rédaction</span>
+                        </div>
+                        <h2>Grande victoire 4-1 face à l'AS Tours !</h2>
+                        <p class="featured-excerpt">
+                            Une performance exceptionnelle de nos joueurs ce weekend avec une victoire éclatante 4-1 face à l'AS Tours. 
+                            Killua Zoldyck a inscrit un triplé magistral tandis que Kirito a délivré deux passes décisives. 
+                            Cette victoire propulse le FC-Fulbert à la 3e place du classement.
+                        </p>
+                        <a href="#article-1" class="featured-cta">Lire la suite →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Grille d'Actualités -->
+        <section class="news-grid-section">
+            <div class="container">
+                <h2 class="section-title">Dernières Actualités</h2>
+                
+                <div id="newsGrid" class="news-grid">
+                    <!-- Article 2 -->
+                    <article class="news-card" data-category="transfert" data-date="2025-10-03">
+                        <div class="news-image">
+                            <img src="img/nouveau-joueur.webp" alt="Nouveau joueur">
+                            <div class="news-category transfert">Transfert</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-date">📅 03 Oct 2025</span>
+                                <span class="news-reading">⏱️ 3 min</span>
+                            </div>
+                            <h3>Arrivée de Lucas Martin en provenance de Dreux AC</h3>
+                            <p>Le FC-Fulbert renforce son milieu de terrain avec l'arrivée du talentueux Lucas Martin, 24 ans. Un profil offensif qui apportera de la créativité...</p>
+                            <a href="#article-2" class="news-link">Lire l'article →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="news-card" data-category="evenement" data-date="2025-10-01">
+                        <div class="news-image">
+                            <img src="img/stage-vacances.jpg" alt="Stage vacances">
+                            <div class="news-category evenement">Événement</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-date">📅 01 Oct 2025</span>
+                                <span class="news-reading">⏱️ 2 min</span>
+                            </div>
+                            <h3>Stages football vacances de la Toussaint 2025</h3>
+                            <p>Inscriptions ouvertes pour nos stages de football pendant les vacances ! Du 21 au 25 octobre pour les 6-16 ans. Places limitées...</p>
+                            <a href="#article-3" class="news-link">En savoir plus →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="news-card" data-category="jeunes" data-date="2025-09-28">
+                        <div class="news-image">
+                            <img src="img/u15-victoire.png" alt="U15 victoire">
+                            <div class="news-category jeunes">Jeunes</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-date">📅 28 Sep 2025</span>
+                                <span class="news-reading">⏱️ 2 min</span>
+                            </div>
+                            <h3>Nos U15 qualifiés pour la finale départementale</h3>
+                            <p>Bravo à nos U15 qui se sont qualifiés pour la finale départementale après une victoire 3-0 face à Lucé. Rendez-vous le 15 octobre pour la finale...</p>
+                            <a href="#article-4" class="news-link">Lire l'article →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="news-card" data-category="communique" data-date="2025-09-25">
+                        <div class="news-image">
+                            <img src="img/communique.png" alt="Communiqué">
+                            <div class="news-category communique">Communiqué</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-date">📅 25 Sep 2025</span>
+                                <span class="news-reading">⏱️ 1 min</span>
+                            </div>
+                            <h3>Nouveau partenariat avec Sport 2000 Chartres</h3>
+                            <p>Le FC-Fulbert est fier d'annoncer un nouveau partenariat avec Sport 2000 Chartres pour l'équipement de nos équipes jeunes. Une collaboration qui durera 3 ans...</p>
+                            <a href="#article-5" class="news-link">Lire le communiqué →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="news-card" data-category="match" data-date="2025-09-22">
+                        <div class="news-image">
+                            <img src="img/match-nul.png" alt="Match nul">
+                            <div class="news-category match">Match</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-date">📅 22 Sep 2025</span>
+                                <span class="news-reading">⏱️ 3 min</span>
+                            </div>
+                            <h3>Match nul 2-2 face au FC Chartres</h3>
+                            <p>Derby intense ce weekend avec un match nul 2-2 face au FC Chartres. Malgré une domination, nos joueurs n'ont pas réussi à faire la différence...</p>
+                            <a href="#article-6" class="news-link">Voir le résumé →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 7 -->
+                    <article class="news-card" data-category="evenement" data-date="2025-09-18">
+                        <div class="news-image">
+                            <img src="img/journee-portes-ouvertes.png" alt="Portes ouvertes">
+                            <div class="news-category evenement">Événement</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-date">📅 18 Sep 2025</span>
+                                <span class="news-reading">⏱️ 2 min</span>
+                            </div>
+                            <h3>Journée Portes Ouvertes le 30 septembre</h3>
+                            <p>Venez découvrir le FC-Fulbert lors de notre journée portes ouvertes ! Visites des installations, rencontres avec les joueurs, essais gratuits pour les jeunes...</p>
+                            <a href="#article-7" class="news-link">Plus d'infos →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 8 -->
+                    <article class="news-card" data-category="jeunes" data-date="2025-09-15">
+                        <div class="news-image">
+                            <img src="img/u13-tournoi.png" alt="Tournoi U13">
+                            <div class="news-category jeunes">Jeunes</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-date">📅 15 Sep 2025</span>
+                                <span class="news-reading">⏱️ 2 min</span>
+                            </div>
+                            <h3>Nos U13 remportent le tournoi de Mainvilliers</h3>
+                            <p>Superbe performance de nos U13 qui ont remporté le tournoi de Mainvilliers en battant 6 équipes. Félicitations aux joueurs et à l'encadrement...</p>
+                            <a href="#article-8" class="news-link">Voir les photos →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 9 -->
+                    <article class="news-card" data-category="transfert" data-date="2025-09-10">
+                        <div class="news-image">
+                            <img src="img/prolongation.png" alt="Prolongation contrat">
+                            <div class="news-category transfert">Transfert</div>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-date">📅 10 Sep 2025</span>
+                                <span class="news-reading">⏱️ 2 min</span>
+                            </div>
+                            <h3>Killua Zoldyck prolonge jusqu'en 2027</h3>
+                            <p>Excellente nouvelle ! Notre buteur vedette Killua Zoldyck a prolongé son contrat de 2 ans. Il portera les couleurs du FC-Fulbert jusqu'en 2027...</p>
+                            <a href="#article-9" class="news-link">Lire l'article →</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Message si aucun résultat -->
+                <div id="noNewsResults" class="no-results">
+                    <div class="no-results-icon">😕</div>
+                    <h3>Aucune actualité trouvée</h3>
+                    <p>Essayez de modifier vos critères de recherche ou de filtre</p>
+                </div>
+
+                <!-- Bouton Charger Plus -->
+                <div class="load-more-container">
+                    <button id="loadMoreBtn" class="load-more-btn">
+                        Charger plus d'actualités
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h2>📧 Restez informé !</h2>
+                        <p>Inscrivez-vous à notre newsletter pour recevoir toutes les actualités du FC-Fulbert directement dans votre boîte mail</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Votre adresse email" required>
+                        <button type="submit">S'inscrire</button>
+                    </form>
+                    <p class="newsletter-privacy">Vos données sont protégées et ne seront jamais partagées</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Archives Section -->
+        <section class="archives-section">
+            <div class="container">
+                <h2 class="section-title">Archives</h2>
+                <p class="section-subtitle">Retrouvez toutes nos anciennes actualités</p>
+                
+                <div class="archives-grid">
+                    <a href="#" class="archive-card">
+                        <div class="archive-icon">📅</div>
+                        <h3>Septembre 2025</h3>
+                        <p>24 actualités</p>
+                    </a>
+                    <a href="#" class="archive-card">
+                        <div class="archive-icon">📅</div>
+                        <h3>Août 2025</h3>
+                        <p>18 actualités</p>
+                    </a>
+                    <a href="#" class="archive-card">
+                        <div class="archive-icon">📅</div>
+                        <h3>Juillet 2025</h3>
+                        <p>12 actualités</p>
+                    </a>
+                    <a href="#" class="archive-card">
+                        <div class="archive-icon">📅</div>
+                        <h3>Saison 2024/2025</h3>
+                        <p>156 actualités</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="team-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Suivez toute l'actualité du FC-Fulbert</h2>
+                    <p>Ne manquez aucune information importante du club</p>
+                    <div class="cta-buttons">
+                        <a href="calendrier.html" class="cta-button primary">Voir le calendrier</a>
+                        <a href="resultats.html" class="cta-button secondary">Résultats des matchs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section club-info">
+                        <h3>FC Fulbert Chartres</h3>
+                        <div class="club-subtitle">FC Fulbert - Club de Football</div>
+                        <div class="club-address">
+                            <p>Stade Municipal de Fulbert</p>
+                            <p>123 Avenue du Sport</p>
+                            <p>28000 Chartres, Eure-et-Loir</p>
+                        </div>
+                        <div class="club-contact">
+                            <p><strong>Tél :</strong> <a href="tel:+33237123456">02 37 12 34 56</a></p>
+                            <p><strong>Email :</strong> <a href="mailto:contact@fc-fulbert.github.io">contact@fc-fulbert.github.io</a></p>
+                        </div>
+                        
+                        <div class="social-networks">
+                            <h4>Suivez-nous</h4>
+                            <div class="social-buttons">
+                                <a href="https://www.instagram.com/fcfulbertchartres" target="_blank" rel="noopener noreferrer" class="social-btn instagram" title="Instagram FC-Fulbert"><i>📸</i></a>
+                                <a href="https://www.twitter.com/fcfulbert" target="_blank" rel="noopener noreferrer" class="social-btn twitter" title="Twitter FC-Fulbert"><i>🐦</i></a>
+                                <a href="https://www.facebook.com/fcfulbertchartres" target="_blank" rel="noopener noreferrer" class="social-btn facebook" title="Facebook FC-Fulbert"><i>📘</i></a>
+                                <a href="https://www.tiktok.com/@fcfulbert" target="_blank" rel="noopener noreferrer" class="social-btn tiktok" title="TikTok FC-Fulbert"><i>🎵</i></a>
+                                <a href="https://www.youtube.com/fcfulbertchartres" target="_blank" rel="noopener noreferrer" class="social-btn youtube" title="YouTube FC-Fulbert"><i>📺</i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Accueil FC-Fulbert</a></li>
+                            <li><a href="joueurs-fc-fulbert.html">Liste des Joueurs</a></li>
+                            <li><a href="equipe-feminine.html">Équipe Féminine</a></li>
+                            <li><a href="equipe-jeune.html">École de Football</a></li>
+                            <li><a href="calendrier.html">Calendrier</a></li>
+                            <li><a href="resultats.html">Résultats</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Le Club</h4>
+                        <ul>
+                            <li><a href="histoire.html">Histoire FC-Fulbert</a></li>
+                            <li><a href="boutique.html">Boutique Goodies</a></li>
+                            <li><a href="actualite.html">Actualités</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Informations</h4>
+                        <ul>
+                            <li><a href="#">Inscriptions</a></li>
+                            <li><a href="#">Règlement intérieur</a></li>
+                            <li><a href="#">Plan d'accès</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 FC Fulbert Chartres - Actualités - Tous droits réservés</p>
+                    </div>
+                    <div class="legal-links">
+                        <a href="mentions-legales.html">Mentions légales</a>
+                        <span>|</span>
+                        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="JS/script.js"></script>
+    <script src="JS/actualite.js"></script>
+</body>
+</html>

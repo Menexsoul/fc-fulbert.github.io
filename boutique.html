@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boutique officielle FC-Fulbert Chartres : maillots, équipements, accessoires et produits dérivés du club. Livraison en Eure-et-Loir et toute la France.">
+    <meta name="keywords" content="boutique FC-Fulbert, maillot FC-Fulbert Chartres, équipement football Chartres, produits dérivés club, écharpe FC-Fulbert, shop football Eure-et-Loir, merchandising club">
+    <meta name="author" content="FC-Fulbert Chartres">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Boutique FC-Fulbert Chartres - Produits Officiels">
+    <meta property="og:description" content="Achetez les produits officiels du FC-Fulbert Chartres : maillots, équipements et accessoires.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://menexsoul.github.io/fc-fulbert.github.io/boutique.html">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ7N99VSK0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WJ7N99VSK0');
+    </script>
+
+    <title>Boutique FC-Fulbert Chartres | Produits Officiels & Maillots</title>
+    
+    <link rel="icon" type="image/png" href="img/iconFC.ico">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/boutique.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-fcfulbert.png" alt="Logo FC-Fulbert Chartres" class="logo-image">
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="joueurs-fc-fulbert.html" class="nav-link">Joueurs</a></li>
+                <li><a href="equipe-feminine.html" class="nav-link">Équipe Féminine</a></li>
+                <li><a href="equipe-jeune.html" class="nav-link">Équipe Jeune</a></li>
+                <li><a href="calendrier.html" class="nav-link">Calendrier</a></li>
+                <li><a href="boutique.html" class="nav-link active">Boutique</a></li>
+                <li><a href="resultats.html" class="nav-link">Résultats</a></li>
+                <li><a href="histoire.html" class="nav-link">Histoire</a></li>
+                <li><a href="actualite.html" class="nav-link">Actualité</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="page-title">Boutique Officielle</h1>
+                    <p class="page-subtitle">Soutenez le FC-Fulbert avec nos produits officiels</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Panier flottant -->
+        <div id="cartFloat" class="cart-float">
+            <div class="cart-icon">🛒</div>
+            <div class="cart-count" id="cartCount">0</div>
+        </div>
+
+        <!-- Filtres et Recherche -->
+        <section class="shop-filters-section">
+            <div class="container">
+                <div class="filters-header">
+                    <h2>Nos Produits</h2>
+                    <div class="search-box">
+                        <input type="text" id="searchProduct" placeholder="🔍 Rechercher un produit...">
+                    </div>
+                </div>
+                
+                <div class="shop-filters">
+                    <button class="filter-btn active" data-category="all">Tous les produits</button>
+                    <button class="filter-btn" data-category="maillots">👕 Maillots</button>
+                    <button class="filter-btn" data-category="accessoires">🧣 Accessoires</button>
+                    <button class="filter-btn" data-category="equipement">⚽ Équipement</button>
+                    <button class="filter-btn" data-category="enfants">👶 Enfants</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produits à la Une -->
+        <section class="featured-products-section">
+            <div class="container">
+                <div class="featured-label">⭐ NOUVEAUTÉS</div>
+                <div class="featured-products-grid">
+                    <div class="featured-product">
+                        <div class="featured-badge">NOUVEAU</div>
+                        <div class="product-image">👕</div>
+                        <h3>Maillot Domicile 2024/2025</h3>
+                        <p>Le nouveau maillot officiel orange et rose</p>
+                        <div class="product-price">
+                            <span class="price-current">59,99 €</span>
+                        </div>
+                    </div>
+                    <div class="featured-product">
+                        <div class="featured-badge popular">POPULAIRE</div>
+                        <div class="product-image">🧥</div>
+                        <h3>Veste de Survêtement</h3>
+                        <p>Veste technique aux couleurs du club</p>
+                        <div class="product-price">
+                            <span class="price-current">79,99 €</span>
+                        </div>
+                    </div>
+                    <div class="featured-product">
+                        <div class="featured-badge promo">PROMO -20%</div>
+                        <div class="product-image">🧣</div>
+                        <h3>Écharpe Officielle</h3>
+                        <p>Écharpe tissée aux couleurs du club</p>
+                        <div class="product-price">
+                            <span class="price-old">29,99 €</span>
+                            <span class="price-current">23,99 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grille de Produits -->
+        <section class="products-grid-section">
+            <div class="container">
+                <h2 class="section-title">Tous nos produits</h2>
+                
+                <div id="productsGrid" class="products-grid">
+                    <!-- Les produits seront générés par JavaScript -->
+                </div>
+
+                <!-- Message si aucun résultat -->
+                <div id="noProducts" class="no-results">
+                    <div class="no-results-icon">😕</div>
+                    <h3>Aucun produit trouvé</h3>
+                    <p>Essayez de modifier vos critères de recherche</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Panier -->
+        <div id="cartModal" class="cart-modal">
+            <div class="cart-modal-content">
+                <div class="cart-modal-header">
+                    <h2>🛒 Mon Panier</h2>
+                    <span class="cart-modal-close">&times;</span>
+                </div>
+                <div id="cartItems" class="cart-items">
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">🛒</div>
+                        <p>Votre panier est vide</p>
+                    </div>
+                </div>
+                <div class="cart-total">
+                    <div class="cart-total-row">
+                        <span>Sous-total</span>
+                        <span id="cartSubtotal">0,00 €</span>
+                    </div>
+                    <div class="cart-total-row">
+                        <span>Livraison</span>
+                        <span id="cartShipping">Gratuite</span>
+                    </div>
+                    <div class="cart-total-row total">
+                        <span>Total</span>
+                        <span id="cartTotal">0,00 €</span>
+                    </div>
+                </div>
+                <button class="cart-checkout-btn" id="checkoutBtn">
+                    Passer la commande
+                </button>
+            </div>
+        </div>
+
+        <!-- Avantages Boutique -->
+        <section class="shop-benefits-section">
+            <div class="container">
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🚚</div>
+                        <h3>Livraison Gratuite</h3>
+                        <p>Dès 50€ d'achat en France</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔄</div>
+                        <h3>Retour Gratuit</h3>
+                        <p>30 jours pour changer d'avis</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✅</div>
+                        <h3>Produits Officiels</h3>
+                        <p>100% authentiques et sous licence</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💳</div>
+                        <h3>Paiement Sécurisé</h3>
+                        <p>CB, PayPal, virement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="team-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Besoin d'aide ?</h2>
+                    <p>Notre service client est à votre écoute pour toute question</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="cta-button primary">Nous contacter</a>
+                        <a href="tel:+33237123456" class="cta-button secondary">📞 02 37 12 34 56</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section club-info">
+                        <h3>FC Fulbert Chartres</h3>
+                        <div class="club-subtitle">FC Fulbert - Club de Football</div>
+                        <div class="club-address">
+                            <p>Stade Municipal de Fulbert</p>
+                            <p>123 Avenue du Sport</p>
+                            <p>28000 Chartres, Eure-et-Loir</p>
+                        </div>
+                        <div class="club-contact">
+                            <p><strong>Tél :</strong> <a href="tel:+33237123456">02 37 12 34 56</a></p>
+                            <p><strong>Email :</strong> <a href="mailto:contact@fc-fulbert.github.io">contact@fc-fulbert.github.io</a></p>
+                        </div>
+                        
+                        <div class="social-networks">
+                            <h4>Suivez-nous</h4>
+                            <div class="social-buttons">
+                                <a href="https://www.instagram.com/fcfulbertchartres" target="_blank" rel="noopener noreferrer" class="social-btn instagram" title="Instagram FC-Fulbert"><i>📸</i></a>
+                                <a href="https://www.twitter.com/fcfulbert" target="_blank" rel="noopener noreferrer" class="social-btn twitter" title="Twitter FC-Fulbert"><i>🐦</i></a>
+                                <a href="https://www.facebook.com/fcfulbertchartres" target="_blank" rel="noopener noreferrer" class="social-btn facebook" title="Facebook FC-Fulbert"><i>📘</i></a>
+                                <a href="https://www.tiktok.com/@fcfulbert" target="_blank" rel="noopener noreferrer" class="social-btn tiktok" title="TikTok FC-Fulbert"><i>🎵</i></a>
+                                <a href="https://www.youtube.com/fcfulbertchartres" target="_blank" rel="noopener noreferrer" class="social-btn youtube" title="YouTube FC-Fulbert"><i>📺</i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Accueil FC-Fulbert</a></li>
+                            <li><a href="joueurs-fc-fulbert.html">Liste des Joueurs</a></li>
+                            <li><a href="equipe-feminine.html">Équipe Féminine</a></li>
+                            <li><a href="equipe-jeune.html">École de Football</a></li>
+                            <li><a href="calendrier.html">Calendrier</a></li>
+                            <li><a href="resultats.html">Résultats</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Le Club</h4>
+                        <ul>
+                            <li><a href="histoire.html">Histoire FC-Fulbert</a></li>
+                            <li><a href="boutique.html">Boutique</a></li>
+                            <li><a href="actualite.html">Actualités</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Boutique</h4>
+                        <ul>
+                            <li><a href="#">Livraison & Retours</a></li>
+                            <li><a href="#">Guide des tailles</a></li>
+                            <li><a href="#">CGV</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 FC Fulbert Chartres - Boutique - Tous droits réservés</p>
+                    </div>
+                    <div class="legal-links">
+                        <a href="mentions-legales.html">Mentions légales</a>
+                        <span>|</span>
+                        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="JS/script.js"></script>
+    <script src="JS/boutique-data.js"></script>
+    <script src="JS/boutique.js"></script>
+</body>
+</html>
