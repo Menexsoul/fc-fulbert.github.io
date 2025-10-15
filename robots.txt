@@ -1,0 +1,63 @@
+# Robots.txt pour FC-Fulbert Chartres
+# Site: https://menexsoul.github.io/fc-fulbert.github.io/
+
+# Autoriser tous les robots d'indexation
+User-agent: *
+Allow: /
+
+# Bloquer l'accès aux dossiers techniques (si vous en avez)
+Disallow: /CSS/
+Disallow: /JS/
+Disallow: /img/
+
+# Autoriser spécifiquement le logo et les images importantes pour SEO
+Allow: /img/logo-fcfulbert.png
+Allow: /img/iconFC.ico
+
+# Bloquer les fichiers de configuration (si présents)
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /package-lock.json
+
+# Empêcher l'indexation des fichiers temporaires ou de backup
+Disallow: /*.bak$
+Disallow: /*.tmp$
+Disallow: /*~$
+
+# Sitemap
+Sitemap: https://menexsoul.github.io/fc-fulbert.github.io/sitemap.xml
+
+# Robots spécifiques - Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Robots spécifiques - Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Robots spécifiques - Yahoo
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Robots spécifiques - Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+# Bloquer les mauvais bots (optionnel)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
