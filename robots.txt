@@ -5,14 +5,18 @@
 User-agent: *
 Allow: /
 
-# Bloquer l'accès aux dossiers techniques (si vous en avez)
-Disallow: /CSS/
-Disallow: /JS/
-Disallow: /img/
+# Autoriser explicitement les fichiers importants
+Allow: /sitemap.xml
+Allow: /index.html
+Allow: /*.html
 
-# Autoriser spécifiquement le logo et les images importantes pour SEO
+# Autoriser les images importantes pour le SEO
 Allow: /img/logo-fcfulbert.png
 Allow: /img/iconFC.ico
+
+# Bloquer uniquement les fichiers non essentiels
+Disallow: /CSS/
+Disallow: /JS/
 
 # Bloquer les fichiers de configuration (si présents)
 Disallow: /.git/
@@ -26,17 +30,19 @@ Disallow: /*.bak$
 Disallow: /*.tmp$
 Disallow: /*~$
 
-# Sitemap
+# Sitemap (déclaration explicite)
 Sitemap: https://menexsoul.github.io/fc-fulbert.github.io/sitemap.xml
 
 # Robots spécifiques - Google
 User-agent: Googlebot
 Allow: /
+Allow: /sitemap.xml
 Crawl-delay: 0
 
 # Robots spécifiques - Bing
 User-agent: Bingbot
 Allow: /
+Allow: /sitemap.xml
 Crawl-delay: 0
 
 # Robots spécifiques - Yahoo
